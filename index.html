@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>404 NOT FOUND - CNZW API</title>
+    <title>CNZW API</title>
     <style>
         body {
             background-image: url('background.jpg');
@@ -15,16 +15,22 @@
             background-attachment: fixed;
         }
     </style>
-    <link rel="icon" sizes="any" mask href="https://cnzw-wtw.github.io/img/CNZW/TB.png">
+    <link rel="icon" sizes="any" mask href="/img/CNZW/TB.png">
     <div id="CNZW-live2d">
         <script src="/live2d-widget/autoload.js"></script>
     </div>
 </head>
 <body>
+<!---->
 <center>
-    <div id="CNZW404">
-        <h1 id="CW4"><strong>404 NOT FOUND</strong></h1><br />
-        <b id="FL4"><strong>文件已被删除、已更名或停止支持</strong></b>
+    <div id="top"></div>
+    <div id="CNZW-API">
+        <noscript>
+        <p id="noscript"><strong>你的浏览器不支持或已禁用JavaScript</strong></p>
+        </noscript>
+        <b id="text">&nbsp;CNZW API&nbsp;</b>
+        <p id="introduction">CNZW API 是 CNZW 的 API 站点，用于为 CNZW 的网站或软件提供 API接口 .</p>
+        <br>
     </div>
 </center>
 <script>
@@ -61,20 +67,33 @@
     }, 80);
 </script>
 <style>
+    #noscript{
+        background-color: black;
+        color: red;
+        margin-left: 100px;
+        margin-right: 100px;
+        border-radius: 10px;
+    }
     @font-face {
         font-family: 'CNZW-font';
         src: url('CNZW.ttf') format('truetype');
     }
-    #CNZW404{
+    #CNZW-API{
         background-color: rgba(255, 255, 255, 0.80);
-        margin: 100px;
+        margin-top: 100px;
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-bottom: 100px;
+        border-radius: 30px;
     }
-    #CW4{
+    #text{
+        color: rgb(0, 255, 42);
         font-size: 100px;
-        color: red;
+        background-color: rgba(0, 0, 0, 0.80);
+        border-radius: 10px;
         font-family: 'CNZW-font', sans-serif;
     }
-    #FL4{
+    #introduction{
         font-size: 30px;
     }
     #footer{
