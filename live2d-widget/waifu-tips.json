@@ -82,7 +82,7 @@
 		"text": ["GitHub！我是新手！", "Python 是最好的语言！"]
 	}, {
 		"selector": "a[href^='mailto']",
-		"text": ["邮件我会及时回复的！", "点击就可以发送邮件啦～"]
+		"text": ["邮件我会及时回复的！", "点击就可以发送邮件啦～", "我的邮箱是cnzw-wtw@qq.com，用它就可以和我联系啦～"]
 	}, {
 		"selector": "a[href^='/tags/']",
 		"text": ["要去看看 <span>{text}</span> 标签么？", "点它可以查看此标签下的所有文章哟！"]
