@@ -100,7 +100,8 @@
 }
 
 #waifu-tool .fa-lg:hover {
-	color: #0684bd; /* #34495e */
+	color: #0684bd;
+	/* #34495e */
 }
 
 @keyframes shake {
@@ -300,7 +301,8 @@
 		transform: translate(-1.5px, -1.5px) rotate(-.5deg);
 	}
 
-	0%, 100% {
+	0%,
+	100% {
 		transform: translate(0, 0) rotate(0);
 	}
 }
