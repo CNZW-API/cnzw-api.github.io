@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
     <meta charset="UTF-8">
     <title>CNZW API</title>
@@ -18,101 +19,118 @@
     <link rel="icon" sizes="any" mask href="https://cnzw-wtw.github.io/img/CNZW/TB.png">
     <script src="/live2d-widget/autoload.js"></script>
 </head>
+
 <body>
-<!---->
-<center>
-    <div id="top"></div>
-    <div id="CNZW-API">
-        <noscript>
-        <p id="noscript"><strong>你的浏览器不支持或已禁用JavaScript</strong></p>
-        </noscript>
-        <b id="text">&nbsp;CNZW API&nbsp;</b>
-        <p id="introduction">CNZW API是CNZW的API站点，用于为CNZW的网站或软件提供API接口</p>
-        <br>
-    </div>
-</center>
-<script>
-    var canvas = document.createElement("canvas"),
-        context = canvas.getContext("2d");
-    document.body.appendChild(canvas);
-    canvas.style.cssText = "position: fixed; top: 0; left: 0; background-color: #111; z-index: -100;";
-    var W = window.innerWidth,
-        H = window.innerHeight;
-    canvas.width = W;
-    canvas.height = H;
-    var colunms = 49,
-        fontSize = Math.floor(W / colunms),
-        string = "0123456789<>?:,';[)(*&^%$#@!~`].|}{asdfghjklpoiuytrewqzxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM=+-_`~"
+    <!---->
+    <center>
+        <div id="top"></div>
+        <div id="CNZW-API">
+            <noscript>
+                <p id="noscript"><strong>你的浏览器不支持或已禁用JavaScript</strong></p>
+            </noscript>
+            <b id="text">&nbsp;CNZW API&nbsp;</b>
+            <p id="introduction">CNZW API是CNZW的API站点，用于为CNZW的网站或软件提供API接口</p>
+            <br>
+        </div>
+    </center>
+    <script>
+        var canvas = document.createElement("canvas"),
+            context = canvas.getContext("2d");
+        document.body.appendChild(canvas);
+        canvas.style.cssText = "position: fixed; top: 0; left: 0; background-color: #111; z-index: -100;";
+        var W = window.innerWidth,
+            H = window.innerHeight;
+        canvas.width = W;
+        canvas.height = H;
+        var colunms = 49,
+            fontSize = Math.floor(W / colunms),
+            string = "0123456789<>?:,';[)(*&^%$#@!~`].|}{asdfghjklpoiuytrewqzxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM=+-_`~"
         number = [],
-        jmax = 2;
-    
-    setInterval(function() {
-        context.fillStyle = "rgba(0,0,0,0.4)";
-        context.fillRect(0, 0, W, H);
-        context.font = "700 " + fontSize + "px monospace";
-        context.fillStyle = "#00cc33";
-        for (var i = 0; i < colunms; i++) {
-            if (i % 10 == 9) continue;
-            for (var j = 1; j < jmax; j++) {
-                var index = Math.floor(Math.random() * string.length);
-                var x = (i + 0.5) * fontSize;
-                var y = j * fontSize;
-                if (!number[[x, y]] || Math.random() < 0.1) number[[x, y]] = string[index];
-                context.fillText(number[[x, y]], x, y);
+            jmax = 2;
+
+        setInterval(function () {
+            context.fillStyle = "rgba(0,0,0,0.4)";
+            context.fillRect(0, 0, W, H);
+            context.font = "700 " + fontSize + "px monospace";
+            context.fillStyle = "#00cc33";
+            for (var i = 0; i < colunms; i++) {
+                if (i % 10 == 9) continue;
+                for (var j = 1; j < jmax; j++) {
+                    var index = Math.floor(Math.random() * string.length);
+                    var x = (i + 0.5) * fontSize;
+                    var y = j * fontSize;
+                    if (!number[[x, y]] || Math.random() < 0.1) number[[x, y]] = string[index];
+                    context.fillText(number[[x, y]], x, y);
+                }
             }
+            if (jmax < Math.ceil(H / fontSize)) jmax++;
+        }, 80);
+    </script>
+    <style>
+        #noscript {
+            background-color: black;
+            color: red;
+            margin-left: 100px;
+            margin-right: 100px;
+            border-radius: 10px;
         }
-        if (jmax < Math.ceil(H / fontSize)) jmax++;
-    }, 80);
-</script>
-<style>
-    #noscript{
-        background-color: black;
-        color: red;
-        margin-left: 100px;
-        margin-right: 100px;
-        border-radius: 10px;
-    }
-    @font-face {
-        font-family: 'CNZW-font';
-        src: url('CNZW.ttf') format('truetype');
-    }
-    #CNZW-API{
-        background-color: rgba(255, 255, 255, 0.80);
-        margin-top: 100px;
-        margin-left: 100px;
-        margin-right: 100px;
-        margin-bottom: 100px;
-        border-radius: 30px;
-    }
-    #text{
-        color: rgb(0, 255, 42);
-        font-size: 100px;
-        background-color: rgba(0, 0, 0, 0.80);
-        border-radius: 10px;
-        font-family: 'CNZW-font', sans-serif;
-    }
-    #introduction{
-        font-size: 30px;
-    }
-    #footer{
-        background-color: white;
-    }
-    ::selection{
-    background: rgb(0, 255, 0);
-    color: black;
-    }
-</style>
-<!---->
-<center>
-    <footer id="footer">
-        <hr color="black" size="3" />
-        <b style="font-size:17px;color:black"><strong>Copyright&copy; 2023-<b id="Y"></b>&nbsp;CNZW. All Right Reserved</strong></b>
-        <hr color="black" size="3" />
-        <script>
-            var currentYear = new Date().getFullYear();
-            document.getElementById("Y").innerHTML = currentYear;
-        </script>
-    </footer>
-</center>
+
+        @font-face {
+            font-family: 'CNZW-font';
+            src: url('CNZW.ttf') format('truetype');
+        }
+
+        #CNZW-API {
+            background-color: rgba(255, 255, 255, 0.80);
+            margin-top: 100px;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 100px;
+            border-radius: 30px;
+        }
+
+        #text {
+            color: rgb(0, 255, 42);
+            font-size: 100px;
+            background-color: rgba(0, 0, 0, 0.80);
+            border-radius: 10px;
+            font-family: 'CNZW-font', sans-serif;
+        }
+
+        #introduction {
+            font-size: 30px;
+        }
+
+        #footer {
+            background-color: white;
+        }
+
+        ::selection {
+            background: rgb(0, 255, 0);
+            color: black;
+        }
+    </style>
+    <!---->
+    <center>
+        <footer id="footer">
+            <hr color="black" size="3" />
+            <b style="font-size:17px;color:black">
+                <strong>
+                    Copyleft(&#x0186;) 2023-
+                    <b id="Y">
+                        114514
+                    </b>
+                    &nbsp;CNZW.&nbsp;
+                    <a href="http://www.wtfpl.net/about/" target="_blank">WTFPL</a>
+                </strong>
+            </b>
+            <hr color="black" size="3" />
+            <script>
+                var currentYear = new Date().getFullYear();
+                document.getElementById("Y").innerHTML = currentYear;
+            </script>
+        </footer>
+    </center>
 </body>
+
 </html>
